@@ -76,3 +76,56 @@ var profile = {
 var config = {
     port: 3000
 };
+// =====================================
+//      SPECIAL DATA TYPES in TypeScript
+// =====================================
+//  any means we can hold any values 
+var randomValueChecker = 10;
+randomValueChecker = "jawad";
+randomValueChecker = true;
+// unkown simpier to any but before use this we need to check the data tyes
+var checkUnkown = "jawad";
+// console.log(checkUnkown.toUpperCase()) // produced error 
+if (typeof checkUnkown === "string") {
+    console.log(checkUnkown.toUpperCase());
+}
+// void tell this function is no return 
+// ? can we use the void with variabled 
+function sayHelloFun2() {
+    console.log("hello");
+}
+sayHelloFun2();
+function erroFun() {
+    console.log("error");
+    // return 2; give error because value is return 
+}
+erroFun();
+// =====================================
+//      ADVANCE DATA TYPES in TypeScript
+// =====================================
+// UNION means combination of the two data types
+var unionTypes = "jawad ilyas ";
+console.log("union types ", unionTypes);
+unionTypes = 10;
+console.log("union types ", unionTypes);
+var lead = { name: "anil", depertement: "ics" };
+var userId = "121212";
+// enum
+//  use for we need to values from this only 
+var Role;
+(function (Role) {
+    Role[Role["Admin"] = 0] = "Admin";
+    Role[Role["User"] = 1] = "User";
+    Role[Role["Guest"] = 2] = "Guest";
+})(Role || (Role = {}));
+var userRole = Role.Admin;
+// literals     types
+// restrict the values to a spefic set
+var direction;
+direction = "up";
+direction = "down";
+// function types
+var add;
+add = function (x, y) {
+    return x + y;
+};
