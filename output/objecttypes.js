@@ -1,64 +1,66 @@
+"use strict";
 // primitive data types
 /*
 number,
 string , boolean , undefined , null , symbol , big int
 */
+Object.defineProperty(exports, "__esModule", { value: true });
 // number 
-var ages = 120;
+let ages = 120;
 console.log(ages);
 // string 
-var names = "jawad";
+let names = "jawad";
 console.log(names);
 // boolean
-var flags = true;
+let flags = true;
 console.log("boolean example", flags);
 // undefined
 // undefined means value are not defined yet , after this may be assign 
-var undefinedVariable = undefined;
+let undefinedVariable = undefined;
 console.log(undefinedVariable);
 // null
-var nullVariable = null;
+let nullVariable = null;
 console.log(nullVariable);
 // symbol
-var id = Symbol(121212);
+let id = Symbol(121212);
 console.log("symbol examples ", id);
 // big int 
-var numberbigint = 1212121212121212983129812931293129312931298n;
+let numberbigint = 1212121212121212983129812931293129312931298n;
 console.log("big int number ", numberbigint);
 // object data types
 //  tuples , array , object
 // tuples means set of values 
 // when you need to store multiple values of different data types
-var employeeTuple;
+let employeeTuple;
 employeeTuple = ['jawad', 12];
 console.log(employeeTuple[0]);
 console.log(employeeTuple[1]);
-var employeeTuple2;
+let employeeTuple2;
 employeeTuple2 = ["jawad", 12, false];
 console.log(employeeTuple2[0]);
 console.log(employeeTuple2[1]);
 console.log(employeeTuple2[2]);
-var optionalTuple;
+let optionalTuple;
 optionalTuple = ['jawad'];
 optionalTuple = ['jawad', 12];
 // arrays , collection of the data 
-var arrayOfNumbers;
+let arrayOfNumbers;
 arrayOfNumbers = [1, 2, 3];
 console.log(arrayOfNumbers[0]);
 console.log(arrayOfNumbers[1]);
 console.log(arrayOfNumbers[2]);
-var arrayOfStrings;
+let arrayOfStrings;
 arrayOfStrings = ["jawad", "ilyas", "mughal"];
 console.log(arrayOfStrings[0]);
 console.log(arrayOfStrings[1]);
 console.log(arrayOfStrings[2]);
 // object
-var users = {
+let users = {
     name: "jawad",
     age: 12
 };
-console.log(users === null || users === void 0 ? void 0 : users.name);
-console.log(users === null || users === void 0 ? void 0 : users.age);
+console.log(users?.name);
+console.log(users?.age);
 // special data types 
 // void , never ,any , unkown 
 // void means , nothing is retured 
@@ -67,18 +69,18 @@ function hellos() {
 }
 hellos();
 // never means nothing is return able 
-function errroFun() {
-    console.log("this function is not able to return somehting ");
-    // return 2;
-}
-errroFun();
+// function errroFun(): never {
+//     console.log("this function is not able to return somehting ")
+//     // return 2;
+// }
+// errroFun();
 //  any data we store into this variable 
-var anyTypeTesting = 12;
+let anyTypeTesting = 12;
 console.log(anyTypeTesting);
 anyTypeTesting = "jawad";
 console.log(anyTypeTesting);
 // unkown mean before use check the data types
-var checkUnkownVariable = "testing unkown ";
+let checkUnkownVariable = "testing unkown ";
 // console.log(checkUnkownVariable.toUpperCase())
 if (typeof checkUnkownVariable === "string") {
     console.log(checkUnkownVariable.toUpperCase());
@@ -92,19 +94,18 @@ var city;
     city[city["karachi"] = 1] = "karachi";
     city[city["islamabad"] = 2] = "islamabad";
 })(city || (city = {}));
-var userCity = city.lahore;
+let userCity = city.lahore;
 // literals types
-var directions;
+let directions;
 // directions = "forwar"
 directions = 'down';
 // union means combine tow or more data types
-var unionExample = "jawad";
+let unionExample = "jawad";
 unionExample = 10;
-var lead = { name: "jawad", depertement: 'itc' };
-var userId = "121212";
+let userId = "121212";
 console.log(userId);
-var sum;
-sum = function (x, y) {
+let sum;
+sum = (x, y) => {
     return x + y;
 };
 // ===============================
@@ -158,3 +159,4 @@ sum = function (x, y) {
 // Q28: How does TypeScript enforce type safety at compile time?
 // Q29: Why would you choose 'unknown' over 'any' in TypeScript?
 // Q30: Can tuple elements be optional or readonly? Give an example.
+//# sourceMappingURL=objecttypes.js.map

@@ -1,5 +1,7 @@
+"use strict";
 // let number:number = 10;
 // // console.log(number)
+Object.defineProperty(exports, "__esModule", { value: true });
 // // Cannot redeclare block-scoped variable 'number2'.ts(2451)
 // //  this error occur because type script treat all files as single file
 // let number2:number = 20;
@@ -14,3 +16,4 @@
 // // let data2Convert = Number(data2)
 // // let data2Convert =+data2
 // console.log(data1+ +data2)
+//# sourceMappingURL=Number.js.map

@@ -115,12 +115,12 @@ function hellos(): void {
 hellos()
 
 // never means nothing is return able 
-function errroFun(): never {
-    console.log("this function is not able to return somehting ")
-    // return 2;
-}
+// function errroFun(): never {
+//     console.log("this function is not able to return somehting ")
+//     // return 2;
+// }
 
-errroFun();
+// errroFun();
 
 //  any data we store into this variable 
 
@@ -176,8 +176,8 @@ unionExample = 10
 
 type EmployeesType = { name: string }
 type managers = { deperatement: string }
-type TeamLead = EmployeesType & Managers;
-let lead: TeamLead = { name: "jawad", depertement: 'itc' }
+// type TeamLead = EmployeesType & Managers;
+// let lead: TeamLead = { name: "jawad", depertement: 'itc' }
 
 
 

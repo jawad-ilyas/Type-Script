@@ -1,3 +1,4 @@
+"use strict";
 /*
 
 apply sting data type
@@ -8,16 +9,18 @@ possible boolean vlaues
 inference and declaration issues
 
 */
-var age = 30;
-var userName = "jawad ilyas";
+Object.defineProperty(exports, "__esModule", { value: true });
+let age = 30;
+let userName = "jawad ilyas";
 // change any data type to string
 // let info:string = `${age}`;
 // let info:string = age.toString();
-var info = "" + age;
+let info = "" + age;
 console.log(typeof info);
 // let boolData:Boolean = 0   xxxx
 // let boolData:Boolean = 1 xxxx
-var boolData = true;
+let boolData = true;
 console.log(boolData);
 boolData = false;
 console.log(boolData);
+//# sourceMappingURL=String.js.map

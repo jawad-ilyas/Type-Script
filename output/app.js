@@ -1,25 +1,27 @@
+"use strict";
 // ===============================
 //  Primitive Types in TypeScript
 // ===============================
+Object.defineProperty(exports, "__esModule", { value: true });
 // 1. string → used for text
-var userName = "Jawad Mughal";
+let userName = "Jawad Mughal";
 // 2. number → used for integers and decimals
-var age = 22;
+let age = 22;
 // 3. boolean → true or false values
-var isActive = true;
+let isActive = true;
 // 4. null → intentional absence of a value
-var emptyValue = null;
+let emptyValue = null;
 // 5. undefined → variable declared but not assigned yet
-var notAssigned = undefined;
+let notAssigned = undefined;
 // 6. bigint → for very large numbers (beyond number limit)
 // let bigNumber: bigint = 9007199254740991n;
 // 7. symbol → unique and immutable values (mostly used in advanced cases)
 // let uniqueId: symbol = Symbol(23);
 // 8. any → disables type checking (not recommended, but exists)
-var randomValue = "Hello";
+let randomValue = "Hello";
 randomValue = 100; // valid but risky
 // 9. unknown → safer alternative to "any"
-var safeValue = "Some text";
+let safeValue = "Some text";
 // safeValue.toUpperCase(); // ❌ Error: can't directly use unknown type
 // 10. void → no return value (mostly used with functions)
 function showMessage() {
@@ -40,12 +42,12 @@ showMessage();
 //   OBJECT DATA TYPES in TypeScript
 // =====================================
 // object literals
-var user = {
+let user = {
     name: "jawad",
     age: 10
 };
 // nested objects
-var studentd = {
+let studentd = {
     name: "jawad",
     address: {
         city: "Lahore",
@@ -53,38 +55,38 @@ var studentd = {
     }
 };
 // array of th objects
-var arrayOfObject = [
+let arrayOfObject = [
     { id: 1, title: "title1" },
     { id: 2, title: "title2" },
 ];
-var emp1 = { id: 101, name: "Hamxa", role: "user" };
-var myCar = {
+let emp1 = { id: 101, name: "Hamxa", role: "user" };
+let myCar = {
     brand: "toyoto",
     model: 2012,
 };
 // Funciton inside Object
-var person = {
+let person = {
     name: "jawad",
-    great: function () {
+    great() {
         console.log(this.name);
     }
 };
 // optional properties in object
-var profile = {
+let profile = {
     userName: "jawad mughal"
 };
-var config = {
+let config = {
     port: 3000
 };
 // =====================================
 //      SPECIAL DATA TYPES in TypeScript
 // =====================================
 //  any means we can hold any values 
-var randomValueChecker = 10;
+let randomValueChecker = 10;
 randomValueChecker = "jawad";
 randomValueChecker = true;
 // unkown simpier to any but before use this we need to check the data tyes
-var checkUnkown = "jawad";
+let checkUnkown = "jawad";
 // console.log(checkUnkown.toUpperCase()) // produced error 
 if (typeof checkUnkown === "string") {
     console.log(checkUnkown.toUpperCase());
@@ -95,21 +97,21 @@ function sayHelloFun2() {
     console.log("hello");
 }
 sayHelloFun2();
-function erroFun() {
-    console.log("error");
-    // return 2; give error because value is return 
-}
-erroFun();
+// function erroFun(): never {
+//     console.log("error")
+//     // return 2; give error because value is return 
+// }
+// erroFun()
 // =====================================
 //      ADVANCE DATA TYPES in TypeScript
 // =====================================
 // UNION means combination of the two data types
-var unionTypes = "jawad ilyas ";
+let unionTypes = "jawad ilyas ";
 console.log("union types ", unionTypes);
 unionTypes = 10;
 console.log("union types ", unionTypes);
-var lead = { name: "anil", depertement: "ics" };
-var userId = "121212";
+let lead = { name: "anil", depertement: "ics" };
+let userId = "121212";
 // enum
 //  use for we need to values from this only 
 var Role;
@@ -118,14 +120,15 @@ var Role;
     Role[Role["User"] = 1] = "User";
     Role[Role["Guest"] = 2] = "Guest";
 })(Role || (Role = {}));
-var userRole = Role.Admin;
+let userRole = Role.Admin;
 // literals     types
 // restrict the values to a spefic set
-var direction;
+let direction;
 direction = "up";
 direction = "down";
 // function types
-var add;
-add = function (x, y) {
+let add;
+add = (x, y) => {
     return x + y;
 };
+//# sourceMappingURL=app.js.map

@@ -170,12 +170,12 @@ function sayHelloFun2(): void {
 }
 sayHelloFun2();
 
-function erroFun(): never {
-    console.log("error")
-    // return 2; give error because value is return 
-}
+// function erroFun(): never {
+//     console.log("error")
+//     // return 2; give error because value is return 
+// }
 
-erroFun()
+// erroFun()
 
 
 // =====================================
