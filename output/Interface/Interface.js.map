@@ -1,1 +1,0 @@
-{"version":3,"file":"Interface.js","sourceRoot":"","sources":["../../Interface/Interface.ts"],"names":[],"mappings":";;AAYA,oFAAoF;AACpF,IAAI,UAAU,GAAa;IACvB,IAAI,EAAE,OAAO;IACb,GAAG,EAAE,EAAE;IACP,OAAO,EAAE,UAAU;CACtB,CAAA;AAED,sDAAsD;AACtD,IAAI,aAAa,GAAgB;IAC7B,IAAI,EAAE,OAAO;IACb,GAAG,EAAE,EAAE;IACP,OAAO,EAAE,UAAU;IACnB,OAAO,EAAG,YAAY;CACzB,CAAA"}
