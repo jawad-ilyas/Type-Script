@@ -58,20 +58,20 @@
 //  other wy of the nested 
 
 
-var userName: {
-    name: string,
-    age: number,
-    isEmployed: boolean,
-    address: {
-        [key:string] : string | number | boolean
-    }
-} = {
-    name: "jawad",
-    age: 12,
-    isEmployed: false,
-    address: {
-        houseNo: '12',
-        sector: 'lahore',
-        city: 'lahore'
-    }
-}
+// var userName: {
+//     name: string,
+//     age: number,
+//     isEmployed: boolean,
+//     address: {
+//         [keys:string] : string | number | boolean
+//     }
+// } = {
+//     name: "jawad",
+//     age: 12,
+//     isEmployed: false,
+//     address: {
+//         houseNo: '12',
+//         sector: 'lahore',
+//         city: 'lahore'
+//     }
+// }

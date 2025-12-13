@@ -44,14 +44,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //     }
 // }
 //  other wy of the nested 
-var userName = {
-    name: "jawad",
-    age: 12,
-    isEmployed: false,
-    address: {
-        houseNo: '12',
-        sector: 'lahore',
-        city: 'lahore'
-    }
-};
+// var userName: {
+//     name: string,
+//     age: number,
+//     isEmployed: boolean,
+//     address: {
+//         [keys:string] : string | number | boolean
+//     }
+// } = {
+//     name: "jawad",
+//     age: 12,
+//     isEmployed: false,
+//     address: {
+//         houseNo: '12',
+//         sector: 'lahore',
+//         city: 'lahore'
+//     }
+// }
 //# sourceMappingURL=Object.js.map
