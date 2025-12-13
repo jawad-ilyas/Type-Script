@@ -1,0 +1,216 @@
+# TypeScript Decorators — Expert Guide
+
+This guide covers **advanced and expert-level decorators** in TypeScript, including **reflect-metadata, dependency injection, advanced method/property decorators, and real-world framework usage**.
+
+---
+
+## Prerequisites
+
+* Intermediate knowledge of decorators
+* `experimentalDecorators` enabled in `tsconfig.json`
+* `emitDecoratorMetadata` enabled if using metadata
+
+```json
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
+```
+
+* Install reflect-metadata if needed:
+
+```bash
+npm install reflect-metadata
+```
+
+---
+
+## 1. Using Reflect Metadata
+
+### Purpose
+
+* Store **runtime type information**
+* Common in **dependency injection** frameworks
+
+### Example
+
+```ts
+import "reflect-metadata";
+
+function LogType(target: any, key: string) {
+  const type = Reflect.getMetadata("design:type", target, key);
+  console.log(`${key} type:`, type.name);
+}
+
+class Demo {
+  @LogType
+  name: string;
+}
+```
+
+* Output: `name type: String`
+* Helps in **automatic type inference** for DI or validation
+
+---
+
+## 2. Dependency Injection Decorator
+
+```ts
+function Injectable(constructor: Function) {
+  console.log(`${constructor.name} is injectable`);
+}
+
+@Injectable
+class UserService {
+  getUser() {
+    return { name: "Jawad" };
+  }
+}
+```
+
+* Enables **DI frameworks** like Angular/NestJS to inject instances automatically
+
+---
+
+## 3. Advanced Method Decorator — Retry Logic
+
+```ts
+function Retry(retries: number) {
+  return function (
+    target: any,
+    key: string,
+    descriptor: PropertyDescriptor
+  ) {
+    const originalMethod = descriptor.value;
+    descriptor.value = async function (...args: any[]) {
+      let attempts = retries;
+      while (attempts > 0) {
+        try {
+          return await originalMethod.apply(this, args);
+        } catch (e) {
+          attempts--;
+          if (attempts === 0) throw e;
+        }
+      }
+    };
+  };
+}
+
+class ApiService {
+  @Retry(3)
+  async fetchData() {
+    // simulate API call
+  }
+}
+```
+
+* Executes **retry automatically** on failure
+* Useful for **network resilience**
+
+---
+
+## 4. Property Decorator — Validation with Metadata
+
+```ts
+function MinLength(length: number) {
+  return function (target: any, key: string) {
+    let value: string;
+    Object.defineProperty(target, key, {
+      get() { return value; },
+      set(newValue: string) {
+        if (newValue.length < length) {
+          throw new Error(`${key} must be at least ${length} characters`);
+        }
+        value = newValue;
+      }
+    });
+  };
+}
+
+class UserForm {
+  @MinLength(5)
+  username!: string;
+}
+
+const form = new UserForm();
+form.username = "Jawad"; // ✅ OK
+// form.username = "abc"; ❌ Throws error
+```
+
+* Combines decorators and validation
+* Useful in **frameworks or form validation**
+
+---
+
+## 5. Parameter Decorators — Metadata for DI
+
+```ts
+function Inject(token: any) {
+  return function (target: any, key: string, index: number) {
+    const existingInjectedParams = Reflect.getMetadata("inject_params", target, key) || [];
+    existingInjectedParams.push({ index, token });
+    Reflect.defineMetadata("inject_params", existingInjectedParams, target, key);
+  };
+}
+
+class Controller {
+  constructor(@Inject("UserService") private userService: any) {}
+}
+```
+
+* Stores **parameter metadata** for DI containers
+* Enables **automatic resolution of dependencies**
+
+---
+
+## 6. Combining Decorators — Real Framework Style
+
+```ts
+function Controller(path: string) {
+  return function (constructor: Function) {
+    Reflect.defineMetadata("basePath", path, constructor);
+  };
+}
+
+function Get(route: string) {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    Reflect.defineMetadata("route", route, target, propertyKey);
+  };
+}
+
+@Controller("/users")
+class UserController {
+  @Get("/")
+  getUsers() {}
+}
+```
+
+* Mimics **NestJS routing decorators**
+* Uses **metadata** for runtime configuration
+
+---
+
+## Expert-Level Interview Questions
+
+1. What is `reflect-metadata` and why is it needed?
+2. How does dependency injection work with decorators?
+3. Explain method retry decorators and their use cases.
+4. What is the difference between property, method, parameter, and class decorators?
+5. How do execution order and decorator factories interact in complex systems?
+6. How are decorators used in Angular or NestJS internally?
+7. Can decorators be used to implement logging, validation, and DI simultaneously?
+
+---
+
+## Summary
+
+* Expert decorators use **metadata** and **DI patterns**
+* They can modify classes, methods, properties, and parameters dynamically
+* Useful for **frameworks, logging, validation, retries, and automatic injection**
+* Understanding these is critical for **real-world TypeScript enterprise applications**
+
+---
+
+✅ This guide completes the **Decorator series** from Beginner → Intermediate → Expert.
